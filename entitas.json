@@ -1,0 +1,71 @@
+{
+  "namespace": "breakout",
+  "src": "lib/src",
+  "output": {
+    "javascript": "web/src/breakout/generatedExtensions.js",
+    "typescript": "lib/src/generatedComponents.ts",
+    "declaration": "lib/ext/breakout.d.ts"
+  },
+  "alloc": {
+    "entities": 128,
+    "components": 64
+  },
+  "components": {
+    "Position": [
+      "x:number",
+      "y:number"
+    ],
+    "Velocity": [
+      "x:number",
+      "y:number"
+    ],
+    "Resource": [
+      "name:string"
+    ],
+    "Bounds": [
+      "radius:number"
+    ],
+    "Mouse": [
+      "x:number",
+      "y:number"
+    ],
+    "Score": [
+      "value:number"
+    ],
+    "Layer": [
+      "ordinal:number"
+    ]
+  },
+  "systems": {
+    "AddViewSystem": true,
+    "CollisionSystem": true,
+    "DestroySystem": true,
+    "HudRenderSystem": true,
+    "MovementSystem": true,
+    "PlayerInputSystem": true,
+    "SoundEffectSystem": true,
+    "SpriteRenderSystem": true
+  },
+  "entities": {
+    "Score": true,
+    "Mouse": true
+  },
+  "extensions": {
+    "Pool": {
+      "createBrick:Entity": [
+        "color:number",
+        "width:number",
+        "x:number",
+        "y:number"
+      ],
+      "createPaddle:Entity": [
+        "x:number",
+        "y:number"
+      ],
+      "createBall:Entity": [
+        "x:number",
+        "y:number"
+      ]
+    }
+  }
+}
