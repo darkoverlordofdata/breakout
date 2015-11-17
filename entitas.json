@@ -11,61 +11,62 @@
     "components": 64
   },
   "components": {
-    "Position": [
-      "x:number",
-      "y:number"
+    "Animation": [
+      "animation:any"
     ],
-    "Velocity": [
-      "x:number",
-      "y:number"
+    "Body": [
+      "body:any"
     ],
-    "Resource": [
-      "name:string"
+    "Sprite": [
+      "object:any"
     ],
-    "Bounds": [
-      "radius:number"
+    "Stats": [
+      "lives:number",
+      "score:number",
+      "level:number"
     ],
-    "Mouse": [
-      "x:number",
-      "y:number"
-    ],
-    "Score": [
-      "value:number"
-    ],
-    "Layer": [
-      "ordinal:number"
-    ]
+    "Ball": false,
+    "Block": false,
+    "Counter": false,
+    "Paddle": false,
+    "Player": false,
+    "WallLeft": false,
+    "WallRight": false,
+    "WallTop": false,
+    "Destroy": false
   },
   "systems": {
     "AddViewSystem": true,
-    "CollisionSystem": true,
+    "AnimationUpdater": true,
+    "BallDeathChecker": true,
+    "BlockHit": true,
+    "CountdownSystem": true,
     "DestroySystem": true,
-    "HudRenderSystem": true,
-    "MovementSystem": true,
-    "PlayerInputSystem": true,
-    "SoundEffectSystem": true,
-    "SpriteRenderSystem": true
+    "InitializedLevel": true,
+    "LevelChanger": true,
+    "PaddleHit": true,
+    "PaddleMovement": true,
+    "PhysicsStep": true,
+    "Renderer": true,
+    "SpriteBodyUpdated": true
   },
   "entities": {
-    "Score": true,
-    "Mouse": true
+    "Ball": true,
+    "Block": true,
+    "Counter": true,
+    "Paddle": true,
+    "Player": true,
+    "WallLeft": true,
+    "WallRight": true,
+    "WallTop": true
   },
   "extensions": {
     "Pool": {
-      "createBrick:Entity": [
-        "color:number",
-        "width:number",
-        "x:number",
-        "y:number"
-      ],
-      "createPaddle:Entity": [
-        "x:number",
-        "y:number"
-      ],
-      "createBall:Entity": [
-        "x:number",
-        "y:number"
-      ]
+      "createPlayer:Entity": [],
+      "createPaddle:Entity": [],
+      "createWallTop:Entity": [],
+      "createWallLeft:Entity": [],
+      "createWallRight:Entity": []
     }
   }
 }

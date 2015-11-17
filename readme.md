@@ -3,27 +3,44 @@ Based on https://github.com/city41/breakouts, however the implementation guideli
 this repo doesn't qualify as it's not pure javascript.
 
 entitas init breakout
-
-entitas create -c Position x:number y:number
-entitas create -c Velocity x:number y:number
-entitas create -c Resource name:string
-entitas create -c Bounds radius:number
-entitas create -c Mouse x:number y:number
-entitas create -c Score value:number
-entitas create -c Layer ordinal:number
-entitas create -e Score
-entitas create -e Mouse
+entitas create -c Animation animation:any
+entitas create -c Body body:any
+entitas create -c Sprite object:any
+entitas create -c Stats lives:number score:number level:number
+entitas create -c Ball
+entitas create -c Block
+entitas create -c Counter
+entitas create -c Paddle
+entitas create -c Player
+entitas create -c WallLeft
+entitas create -c WallRight
+entitas create -c WallTop
+entitas create -e Ball
+entitas create -e Block
+entitas create -e Counter
+entitas create -e Paddle
+entitas create -e Player
+entitas create -e WallLeft
+entitas create -e WallRight
+entitas create -e WallTop
 entitas create -s AddViewSystem ISetPool IInitializeSystem IExecuteSystem
-entitas create -s CollisionSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s DestroySystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s HudRenderSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s MovementSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s PlayerInputSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s SoundEffectSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -s SpriteRenderSystem  ISetPool IInitializeSystem IExecuteSystem
-entitas create -x Pool createBrick:Entity color:number width:number x:number y:number
-entitas create -x Pool createPaddle:Entity x:number y:number
-entitas create -x Pool createBall:Entity x:number y:number
+entitas create -s AnimationUpdater ISetPool IInitializeSystem IExecuteSystem
+entitas create -s BallDeathChecker ISetPool IInitializeSystem IExecuteSystem
+entitas create -s BlockHit ISetPool IInitializeSystem IExecuteSystem
+entitas create -s CountdownSystem ISetPool IInitializeSystem IExecuteSystem
+entitas create -s DestroySystem ISetPool IInitializeSystem IExecuteSystem
+entitas create -s InitializedLevel ISetPool IInitializeSystem IExecuteSystem
+entitas create -s LevelChanger ISetPool IInitializeSystem IExecuteSystem
+entitas create -s PaddleHit ISetPool IInitializeSystem IExecuteSystem
+entitas create -s PaddleMovement ISetPool IInitializeSystem IExecuteSystem
+entitas create -s PhysicsStep ISetPool IInitializeSystem IExecuteSystem
+entitas create -s Renderer ISetPool IInitializeSystem IExecuteSystem
+entitas create -s SpriteBodyUpdated ISetPool IInitializeSystem IExecuteSystem
+entitas create -x Pool createPlayer:Entity
+entitas create -x Pool createPaddle:Entity
+entitas create -x Pool createWallTop:Entity
+entitas create -x Pool createWallLeft:Entity
+entitas create -x Pool createWallRight:Entity
 entitas generate
 
 # MIT License

@@ -16,8 +16,7 @@ bosco.start({
     },
     "controllers": {
         main: [
-            "GameController",
-            "ScoreLabelController"
+            "GameController"
         ]
     },
     "assets": {

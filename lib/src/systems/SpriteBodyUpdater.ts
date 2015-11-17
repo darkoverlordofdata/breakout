@@ -10,7 +10,7 @@ module breakout {
   import IInitializeSystem = entitas.IInitializeSystem;
   import IExecuteSystem = entitas.IExecuteSystem;
 
-  export class SpriteRenderSystem implements ISetPool, IInitializeSystem, IExecuteSystem {
+  export class SpriteBodyUpdater implements ISetPool, IInitializeSystem, IExecuteSystem {
 
     protected pool:Pool;
     protected group:Group;

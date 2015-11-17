@@ -221,29 +221,37 @@ declare module entitas {
     interface IComponent {
     }
 
-    class PositionComponent implements IComponent {
-      public x:number;
-      public y:number;
+    class AnimationComponent implements IComponent {
+      public animation:any;
     }
-    class VelocityComponent implements IComponent {
-      public x:number;
-      public y:number;
+    class BodyComponent implements IComponent {
+      public body:any;
     }
-    class ResourceComponent implements IComponent {
-      public name:string;
+    class SpriteComponent implements IComponent {
+      public object:any;
     }
-    class BoundsComponent implements IComponent {
-      public radius:number;
+    class StatsComponent implements IComponent {
+      public lives:number;
+      public score:number;
+      public level:number;
     }
-    class MouseComponent implements IComponent {
-      public x:number;
-      public y:number;
+    class BallComponent implements IComponent {
     }
-    class ScoreComponent implements IComponent {
-      public value:number;
+    class BlockComponent implements IComponent {
     }
-    class LayerComponent implements IComponent {
-      public ordinal:number;
+    class CounterComponent implements IComponent {
+    }
+    class PaddleComponent implements IComponent {
+    }
+    class PlayerComponent implements IComponent {
+    }
+    class WallLeftComponent implements IComponent {
+    }
+    class WallRightComponent implements IComponent {
+    }
+    class WallTopComponent implements IComponent {
+    }
+    class DestroyComponent implements IComponent {
     }
 
 }
@@ -431,20 +439,32 @@ declare module entitas {
     }
     class Matcher implements IAllOfMatcher, IAnyOfMatcher, INoneOfMatcher {
 /** Matcher Extensions for breakout */
-        static _matcherPosition;
-        static Position: Matcher;
-        static _matcherVelocity;
-        static Velocity: Matcher;
-        static _matcherResource;
-        static Resource: Matcher;
-        static _matcherBounds;
-        static Bounds: Matcher;
-        static _matcherMouse;
-        static Mouse: Matcher;
-        static _matcherScore;
-        static Score: Matcher;
-        static _matcherLayer;
-        static Layer: Matcher;
+        static _matcherAnimation;
+        static Animation: Matcher;
+        static _matcherBody;
+        static Body: Matcher;
+        static _matcherSprite;
+        static Sprite: Matcher;
+        static _matcherStats;
+        static Stats: Matcher;
+        static _matcherBall;
+        static Ball: Matcher;
+        static _matcherBlock;
+        static Block: Matcher;
+        static _matcherCounter;
+        static Counter: Matcher;
+        static _matcherPaddle;
+        static Paddle: Matcher;
+        static _matcherPlayer;
+        static Player: Matcher;
+        static _matcherWallLeft;
+        static WallLeft: Matcher;
+        static _matcherWallRight;
+        static WallRight: Matcher;
+        static _matcherWallTop;
+        static WallTop: Matcher;
+        static _matcherDestroy;
+        static Destroy: Matcher;
         /**
          * Get the matcher id
          * @type {number}
@@ -604,55 +624,61 @@ declare module entitas {
     }
     class Entity {
 /** Entity Extensions for breakout */
-        static _positionComponentPool;
-        static clearPositionComponentPool();
-        position: PositionComponent;
-        hasPosition: boolean;
-        addPosition(x:number, y:number);
-        replacePosition(x:number, y:number);
-        removePosition();
-        static _velocityComponentPool;
-        static clearVelocityComponentPool();
-        velocity: VelocityComponent;
-        hasVelocity: boolean;
-        addVelocity(x:number, y:number);
-        replaceVelocity(x:number, y:number);
-        removeVelocity();
-        static _resourceComponentPool;
-        static clearResourceComponentPool();
-        resource: ResourceComponent;
-        hasResource: boolean;
-        addResource(name:string);
-        replaceResource(name:string);
-        removeResource();
-        static _boundsComponentPool;
-        static clearBoundsComponentPool();
-        bounds: BoundsComponent;
-        hasBounds: boolean;
-        addBounds(radius:number);
-        replaceBounds(radius:number);
-        removeBounds();
-        static _mouseComponentPool;
-        static clearMouseComponentPool();
-        mouse: MouseComponent;
-        hasMouse: boolean;
-        addMouse(x:number, y:number);
-        replaceMouse(x:number, y:number);
-        removeMouse();
-        static _scoreComponentPool;
-        static clearScoreComponentPool();
-        score: ScoreComponent;
-        hasScore: boolean;
-        addScore(value:number);
-        replaceScore(value:number);
-        removeScore();
-        static _layerComponentPool;
-        static clearLayerComponentPool();
-        layer: LayerComponent;
-        hasLayer: boolean;
-        addLayer(ordinal:number);
-        replaceLayer(ordinal:number);
-        removeLayer();
+        static _animationComponentPool;
+        static clearAnimationComponentPool();
+        animation: AnimationComponent;
+        hasAnimation: boolean;
+        addAnimation(animation:any);
+        replaceAnimation(animation:any);
+        removeAnimation();
+        static _bodyComponentPool;
+        static clearBodyComponentPool();
+        body: BodyComponent;
+        hasBody: boolean;
+        addBody(body:any);
+        replaceBody(body:any);
+        removeBody();
+        static _spriteComponentPool;
+        static clearSpriteComponentPool();
+        sprite: SpriteComponent;
+        hasSprite: boolean;
+        addSprite(object:any);
+        replaceSprite(object:any);
+        removeSprite();
+        static _statsComponentPool;
+        static clearStatsComponentPool();
+        stats: StatsComponent;
+        hasStats: boolean;
+        addStats(lives:number, score:number, level:number);
+        replaceStats(lives:number, score:number, level:number);
+        removeStats();
+        static ballComponent: BallComponent;
+        isBall: boolean;
+        setBall(value: boolean);
+        static blockComponent: BlockComponent;
+        isBlock: boolean;
+        setBlock(value: boolean);
+        static counterComponent: CounterComponent;
+        isCounter: boolean;
+        setCounter(value: boolean);
+        static paddleComponent: PaddleComponent;
+        isPaddle: boolean;
+        setPaddle(value: boolean);
+        static playerComponent: PlayerComponent;
+        isPlayer: boolean;
+        setPlayer(value: boolean);
+        static wallLeftComponent: WallLeftComponent;
+        isWallLeft: boolean;
+        setWallLeft(value: boolean);
+        static wallRightComponent: WallRightComponent;
+        isWallRight: boolean;
+        setWallRight(value: boolean);
+        static wallTopComponent: WallTopComponent;
+        isWallTop: boolean;
+        setWallTop(value: boolean);
+        static destroyComponent: DestroyComponent;
+        isDestroy: boolean;
+        setDestroy(value: boolean);
         /**
          * @static
          * @type {number} */
@@ -1056,22 +1082,28 @@ declare module entitas {
      */
     class Pool {
 /*** Extensions for breakout.Pool */
-        createBrick(color:number, width:number, x:number, y:number):Entity;
-        createPaddle(x:number, y:number):Entity;
-        createBall(x:number, y:number):Entity;
+        createPlayer():Entity;
+        createPaddle():Entity;
+        createWallTop():Entity;
+        createWallLeft():Entity;
+        createWallRight():Entity;
 /** Pool Extensions for breakout */
-        scoreEntity: Entity;
-        score: ScoreComponent;
-        hasScore: boolean;
-        setScore(value:number): Entity;
-        replaceScore(value:number): Entity;
-        removeScore(): void;
-        mouseEntity: Entity;
-        mouse: MouseComponent;
-        hasMouse: boolean;
-        setMouse(x:number, y:number): Entity;
-        replaceMouse(x:number, y:number): Entity;
-        removeMouse(): void;
+        ballEntity: Entity;
+        isBall: boolean;
+        blockEntity: Entity;
+        isBlock: boolean;
+        counterEntity: Entity;
+        isCounter: boolean;
+        paddleEntity: Entity;
+        isPaddle: boolean;
+        playerEntity: Entity;
+        isPlayer: boolean;
+        wallLeftEntity: Entity;
+        isWallLeft: boolean;
+        wallRightEntity: Entity;
+        isWallRight: boolean;
+        wallTopEntity: Entity;
+        isWallTop: boolean;
         /**
          * The total number of components in this pool
          * @type {number}

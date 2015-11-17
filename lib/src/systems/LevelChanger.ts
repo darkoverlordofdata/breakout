@@ -10,7 +10,7 @@ module breakout {
   import IInitializeSystem = entitas.IInitializeSystem;
   import IExecuteSystem = entitas.IExecuteSystem;
 
-  export class MovementSystem implements ISetPool, IInitializeSystem, IExecuteSystem {
+  export class LevelChanger implements ISetPool, IInitializeSystem, IExecuteSystem {
 
     protected pool:Pool;
     protected group:Group;

@@ -10,7 +10,7 @@ module breakout {
   import IInitializeSystem = entitas.IInitializeSystem;
   import IExecuteSystem = entitas.IExecuteSystem;
 
-  export class AddViewSystem implements ISetPool, IInitializeSystem, IExecuteSystem {
+  export class AnimationUpdater implements ISetPool, IInitializeSystem, IExecuteSystem {
 
     protected pool:Pool;
     protected group:Group;

@@ -16,15 +16,19 @@
     "lib/ext/Tween.d.ts",
     "lib/src/prolog.ts",
     "lib/src/generatedComponents.ts",
+    "lib/src/controllers/GameController.ts",
     "lib/src/systems/AddViewSystem.ts",
-    "lib/src/systems/CollisionSystem.ts",
+    "lib/src/systems/AnimationUpdater.ts",
+    "lib/src/systems/BallDeathChecker.ts",
+    "lib/src/systems/BlockHit.ts",
+    "lib/src/systems/CountdownSystem.ts",
     "lib/src/systems/DestroySystem.ts",
-    "lib/src/systems/HudRenderSystem.ts",
-    "lib/src/systems/MovementSystem.ts",
-    "lib/src/systems/PlayerInputSystem.ts",
-    "lib/src/systems/SoundEffectSystem.ts",
-    "lib/src/systems/SpriteRenderSystem.ts",
-    "lib/src/controllers/ScoreLabelController.ts",
-    "lib/src/controllers/GameController.ts"    
+    "lib/src/systems/InitializeLevel.ts",
+    "lib/src/systems/LevelChanger.ts",
+    "lib/src/systems/PaddleHit.ts",
+    "lib/src/systems/PaddleMovement.ts",
+    "lib/src/systems/PhysicsStep.ts",
+    "lib/src/systems/Renderer.ts",
+    "lib/src/systems/SpriteBodyUpdater.ts"
   ]
 }

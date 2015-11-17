@@ -14,42 +14,56 @@ module breakout {
   import IComponent = entitas.IComponent;
 
   export enum CoreComponentIds {
-    Position,
-    Velocity,
-    Resource,
-    Bounds,
-    Mouse,
-    Score,
-    Layer,
+    Animation,
+    Body,
+    Sprite,
+    Stats,
+    Ball,
+    Block,
+    Counter,
+    Paddle,
+    Player,
+    WallLeft,
+    WallRight,
+    WallTop,
+    Destroy,
     TotalComponents
   }
 
   entitas.Entity.initialize(CoreComponentIds.TotalComponents, {"entities":128,"components":64});
 
 
-  export class PositionComponent implements IComponent {
-    public x:number;
-    public y:number;
+  export class AnimationComponent implements IComponent {
+    public animation:any;
   }
-  export class VelocityComponent implements IComponent {
-    public x:number;
-    public y:number;
+  export class BodyComponent implements IComponent {
+    public body:any;
   }
-  export class ResourceComponent implements IComponent {
-    public name:string;
+  export class SpriteComponent implements IComponent {
+    public object:any;
   }
-  export class BoundsComponent implements IComponent {
-    public radius:number;
+  export class StatsComponent implements IComponent {
+    public lives:number;
+    public score:number;
+    public level:number;
   }
-  export class MouseComponent implements IComponent {
-    public x:number;
-    public y:number;
+  export class BallComponent implements IComponent {
   }
-  export class ScoreComponent implements IComponent {
-    public value:number;
+  export class BlockComponent implements IComponent {
   }
-  export class LayerComponent implements IComponent {
-    public ordinal:number;
+  export class CounterComponent implements IComponent {
+  }
+  export class PaddleComponent implements IComponent {
+  }
+  export class PlayerComponent implements IComponent {
+  }
+  export class WallLeftComponent implements IComponent {
+  }
+  export class WallRightComponent implements IComponent {
+  }
+  export class WallTopComponent implements IComponent {
+  }
+  export class DestroyComponent implements IComponent {
   }
 
 
